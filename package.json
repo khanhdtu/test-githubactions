@@ -5,10 +5,10 @@
   "description": "iLotto monorepo with Turborepo",
   "scripts": {
     "dev": "pnpm --filter './apps/web' --filter './apps/admin' --filter './apps/partner' --parallel dev",
-    "build": "turbo run build",
+    "build": "pnpm exec turbo run build --filter='./apps/*' --filter='./packages/*'",
     "start": "pnpm --filter './apps/web' --filter './apps/admin' --filter './apps/partner' --parallel start",
-    "lint": "turbo run lint",
-    "clean": "turbo run clean && rm -rf node_modules"
+    "lint": "pnpm exec turbo run lint --filter='./apps/*' --filter='./packages/*'",
+    "clean": "pnpm exec turbo run clean && rm -rf node_modules"
   },
   "devDependencies": {
     "turbo": "^2.0.0"
