@@ -42,7 +42,7 @@ jobs:
         run: npm install --global vercel@latest
       
       - name: Build project
-        run: turbo run build --filter='@ilotto/web'
+        run: pnpm exec turbo run build --filter='@ilotto/web'
       
       - name: Create Vercel project config
         working-directory: apps/web
