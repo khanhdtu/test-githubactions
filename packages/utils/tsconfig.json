@@ -11,13 +11,9 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "incremental": true,
-    "paths": {
-      "@ilotto/ui": ["./packages/ui"],
-      "@ilotto/utils": ["./packages/utils"],
-      "@ilotto/config": ["./packages/config"]
-    }
+    "incremental": true
   },
-  "include": [],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules"]
 }
+
