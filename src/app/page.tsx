@@ -8,6 +8,7 @@ export default function Home() {
         <p className="text-center text-gray-600">
           Your Next.js application is ready!
         </p>
+        <h1>Hello World</h1>
       </div>
     </main>
   );
