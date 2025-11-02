@@ -20,8 +20,6 @@
     "clean": {
       "cache": false
     }
-  },
-  "experimentalUI": false,
-  "ui": false
+  }
 }
 

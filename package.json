@@ -4,11 +4,20 @@
   "private": true,
   "description": "iLotto monorepo with Turborepo",
   "scripts": {
-    "dev": "pnpm --filter './apps/web' --filter './apps/admin' --filter './apps/partner' --parallel dev",
-    "build": "turbo run build",
-    "start": "pnpm --filter './apps/web' --filter './apps/admin' --filter './apps/partner' --parallel start",
-    "lint": "turbo run lint",
-    "clean": "turbo run clean && rm -rf node_modules"
+    "dev": "pnpm -r --filter '{apps/*}' --parallel dev",
+    "dev:web": "pnpm --filter ./apps/web dev",
+    "dev:admin": "pnpm --filter ./apps/admin dev",
+    "dev:partner": "pnpm --filter ./apps/partner dev",
+    "build": "pnpm -r --filter '{apps/*}' --filter '{packages/*}' build",
+    "build:web": "pnpm --filter ./apps/web build",
+    "build:admin": "pnpm --filter ./apps/admin build",
+    "build:partner": "pnpm --filter ./apps/partner build",
+    "start": "pnpm -r --filter '{apps/*}' --parallel start",
+    "start:web": "pnpm --filter ./apps/web start",
+    "start:admin": "pnpm --filter ./apps/admin start",
+    "start:partner": "pnpm --filter ./apps/partner start",
+    "lint": "pnpm -r --filter '{apps/*}' --filter '{packages/*}' lint",
+    "clean": "pnpm -r --filter '{apps/*}' --filter '{packages/*}' clean && rm -rf node_modules"
   },
   "devDependencies": {
     "turbo": "^2.0.0"
