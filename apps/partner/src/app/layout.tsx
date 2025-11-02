@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "iLotto Partner",
-  description: "iLotto Partner Portal",
+  title: "CatchLotto Partner",
+  description: "CatchLotto Partner Portal",
 };
 
 export default function RootLayout({

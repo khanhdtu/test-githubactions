@@ -26,13 +26,13 @@
       "@/*": [
         "./src/*"
       ],
-      "@ilotto/ui": [
+      "@catchlotto/ui": [
         "../../packages/ui"
       ],
-      "@ilotto/utils": [
+      "@catchlotto/utils": [
         "../../packages/utils"
       ],
-      "@ilotto/config": [
+      "@catchlotto/config": [
         "../../packages/config"
       ]
     }

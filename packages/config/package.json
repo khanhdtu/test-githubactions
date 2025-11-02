@@ -1,5 +1,5 @@
 {
-  "name": "@ilotto/config",
+  "name": "@catchlotto/config",
   "version": "1.0.0",
   "private": true,
   "main": "./index.ts",

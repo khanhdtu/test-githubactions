@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   // Transpile packages from monorepo
-  transpilePackages: ['@ilotto/ui', '@ilotto/utils', '@ilotto/config'],
+  transpilePackages: ['@catchlotto/ui', '@catchlotto/utils', '@catchlotto/config'],
 };
 
 module.exports = nextConfig;

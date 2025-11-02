@@ -42,7 +42,7 @@ jobs:
         run: npm install --global vercel@latest
       
       - name: Verify dependencies
-        run: pnpm list --depth=0 --filter '@ilotto/web' || echo "Dependencies check completed"
+        run: pnpm list --depth=0 --filter '@catchlotto/web' || echo "Dependencies check completed"
       
       - name: Build project
         run: pnpm run build:web
