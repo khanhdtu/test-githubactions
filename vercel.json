@@ -1,7 +1,6 @@
 {
-  "buildCommand": "cd ../.. && pnpm run build --filter=@ilotto/web",
-  "devCommand": "cd ../.. && pnpm run dev --filter=@ilotto/web",
-  "installCommand": "cd ../.. && pnpm install",
-  "framework": "nextjs",
-  "rootDirectory": "apps/web"
+  "buildCommand": "pnpm run build:web",
+  "devCommand": "pnpm run dev:web",
+  "installCommand": "pnpm install",
+  "framework": "nextjs"
 }
