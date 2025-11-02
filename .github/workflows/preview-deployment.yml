@@ -55,9 +55,9 @@ jobs:
       
       - name: Deploy to Vercel Preview
         id: deploy
-        working-directory: apps/web
         run: |
-          DEPLOYMENT_URL=$(vercel deploy --token=${{ secrets.VERCEL_TOKEN }} --yes)
+          cd apps/web
+          DEPLOYMENT_URL=$(vercel deploy --cwd . --token=${{ secrets.VERCEL_TOKEN }} --yes)
           echo "deployment_url=$DEPLOYMENT_URL" >> $GITHUB_OUTPUT
           echo "🚀 Preview deployed at: $DEPLOYMENT_URL"
         env:
