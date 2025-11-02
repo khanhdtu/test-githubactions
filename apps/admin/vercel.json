@@ -1,7 +1,7 @@
 {
-  "buildCommand": "cd ../.. && pnpm run build:admin",
-  "devCommand": "cd ../.. && pnpm run dev:admin",
-  "installCommand": "cd ../.. && pnpm install",
+  "buildCommand": "pnpm run build:admin",
+  "devCommand": "pnpm run dev:admin",
+  "installCommand": "pnpm install",
   "framework": "nextjs"
 }
 
