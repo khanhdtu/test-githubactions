@@ -16,28 +16,9 @@ permissions:
 
 jobs:
   deploy-preview:
-    name: Deploy Preview - ${{ matrix.app }}
+    name: Deploy Preview - Web
     runs-on: ubuntu-latest
     if: github.event.action != 'closed'
-    strategy:
-      matrix:
-        app: [web, admin, partner]
-        include:
-          - app: web
-            directory: apps/web
-            package: '@catchlotto/web'
-            build_script: build:web
-            project_id_secret: VERCEL_PROJECT_ID
-          - app: admin
-            directory: apps/admin
-            package: '@catchlotto/admin'
-            build_script: build:admin
-            project_id_secret: VERCEL_PROJECT_ID_ADMIN
-          - app: partner
-            directory: apps/partner
-            package: '@catchlotto/partner'
-            build_script: build:partner
-            project_id_secret: VERCEL_PROJECT_ID_PARTNER
     
     steps:
       - name: Checkout code
@@ -61,36 +42,34 @@ jobs:
         run: npm install --global vercel@latest
       
       - name: Verify dependencies
-        run: pnpm list --depth=0 --filter '${{ matrix.package }}' || echo "Dependencies check completed"
+        run: pnpm list --depth=0 --filter '@catchlotto/web' || echo "Dependencies check completed"
       
       - name: Build project
-        run: pnpm run ${{ matrix.build_script }}
+        run: pnpm run build:web
       
       - name: Create Vercel project config
-        working-directory: ${{ matrix.directory }}
+        working-directory: apps/web
         run: |
           mkdir -p .vercel
-          PROJECT_ID=${{ secrets[matrix.project_id_secret] }}
+          PROJECT_ID=${{ secrets.VERCEL_PROJECT_ID }}
           ORG_ID=${{ secrets.VERCEL_ORG_ID }}
           echo "{\"projectId\":\"${PROJECT_ID}\",\"orgId\":\"${ORG_ID}\"}" > .vercel/project.json
-        env:
-          VERCEL_PROJECT_ID: ${{ secrets[matrix.project_id_secret] }}
       
       - name: Deploy to Vercel Preview
         id: deploy
         run: |
-          cd ${{ matrix.directory }}
+          cd apps/web
           DEPLOYMENT_URL=$(vercel deploy --cwd . --token=${{ secrets.VERCEL_TOKEN }} --yes)
           echo "deployment_url=$DEPLOYMENT_URL" >> $GITHUB_OUTPUT
           echo "🚀 Preview deployed at: $DEPLOYMENT_URL"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-          VERCEL_PROJECT_ID: ${{ secrets[matrix.project_id_secret] }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
       
       - name: Comment PR with Preview URL
         uses: actions/github-script@v7
-        if: github.event_name == 'pull_request' && matrix.app == 'web'
+        if: github.event_name == 'pull_request'
         with:
           script: |
             const deploymentUrl = '${{ steps.deploy.outputs.deployment_url }}';
