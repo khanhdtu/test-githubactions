@@ -1,8 +1,0 @@
-{
-  "buildCommand": "pnpm --filter @catchlotto/web build",
-  "devCommand": "pnpm --filter @catchlotto/web dev",
-  "installCommand": "pnpm install --frozen-lockfile",
-  "framework": "nextjs",
-  "outputDirectory": "apps/web/.next"
-}
-
