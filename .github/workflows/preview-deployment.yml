@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   deploy-preview:
-    name: Deploy Preview
+    name: Deploy Preview - Web
     runs-on: ubuntu-latest
     if: github.event.action != 'closed'
     
@@ -42,7 +42,7 @@ jobs:
         run: npm install --global vercel@latest
       
       - name: Verify dependencies
-        run: pnpm list --depth=0 --filter '@ilotto/web' || echo "Dependencies check completed"
+        run: pnpm list --depth=0 --filter '@catchlotto/web' || echo "Dependencies check completed"
       
       - name: Build project
         run: pnpm run build:web
@@ -51,7 +51,9 @@ jobs:
         working-directory: apps/web
         run: |
           mkdir -p .vercel
-          echo '{"projectId":"${{ secrets.VERCEL_PROJECT_ID }}","orgId":"${{ secrets.VERCEL_ORG_ID }}"}' > .vercel/project.json
+          PROJECT_ID=${{ secrets.VERCEL_PROJECT_ID }}
+          ORG_ID=${{ secrets.VERCEL_ORG_ID }}
+          echo "{\"projectId\":\"${PROJECT_ID}\",\"orgId\":\"${ORG_ID}\"}" > .vercel/project.json
       
       - name: Deploy to Vercel Preview
         id: deploy

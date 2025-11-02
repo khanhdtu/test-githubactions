@@ -1,5 +1,5 @@
 {
-  "name": "@ilotto/web",
+  "name": "@catchlotto/web",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -13,9 +13,9 @@
     "next": "^16.0.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "@ilotto/ui": "workspace:*",
-    "@ilotto/utils": "workspace:*",
-    "@ilotto/config": "workspace:*"
+    "@catchlotto/ui": "workspace:*",
+    "@catchlotto/utils": "workspace:*",
+    "@catchlotto/config": "workspace:*"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.16",

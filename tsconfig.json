@@ -13,9 +13,9 @@
     "isolatedModules": true,
     "incremental": true,
     "paths": {
-      "@ilotto/ui": ["./packages/ui"],
-      "@ilotto/utils": ["./packages/utils"],
-      "@ilotto/config": ["./packages/config"]
+      "@catchlotto/ui": ["./packages/ui"],
+      "@catchlotto/utils": ["./packages/utils"],
+      "@catchlotto/config": ["./packages/config"]
     }
   },
   "include": [],

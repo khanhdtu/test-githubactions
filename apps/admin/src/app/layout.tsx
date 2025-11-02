@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "iLotto Admin",
-  description: "iLotto Admin Panel",
+  title: "CatchLotto Admin",
+  description: "CatchLotto Admin Panel",
 };
 
 export default function RootLayout({
