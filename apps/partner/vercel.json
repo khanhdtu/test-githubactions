@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd ../.. && pnpm run build:partner",
+  "devCommand": "cd ../.. && pnpm run dev:partner",
+  "installCommand": "cd ../.. && pnpm install",
+  "framework": "nextjs"
+}
+
